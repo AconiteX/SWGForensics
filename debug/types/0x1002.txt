@@ -1,0 +1,5 @@
+object/installation/generators/base/shared_power_generator_base.iff
+object/installation/generators/shared_power_generator_fusion_style_1.iff
+object/installation/generators/shared_power_generator_photo_bio_style_1.iff
+object/installation/generators/shared_power_generator_solar_style_1.iff
+object/installation/generators/shared_power_generator_wind_style_1.iff

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SWGForensics/!svn/ver/38/trunk/src/swgforensics/tools/crcdumper
+END
+crcstringdumper.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SWGForensics/!svn/ver/38/trunk/src/swgforensics/tools/crcdumper/crcstringdumper.h
+END
+crcstringdumper.ui
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SWGForensics/!svn/ver/38/trunk/src/swgforensics/tools/crcdumper/crcstringdumper.ui
+END
+crcstringdumper.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SWGForensics/!svn/ver/38/trunk/src/swgforensics/tools/crcdumper/crcstringdumper.cpp
+END

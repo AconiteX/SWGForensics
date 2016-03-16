@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible
+END
+SharedCountingObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedCountingObjectTemplate.cpp
+END
+SharedFactoryObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedFactoryObjectTemplate.cpp
+END
+SharedWeaponObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedWeaponObjectTemplate.cpp
+END
+SharedCreatureObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedCreatureObjectTemplate.cpp
+END
+SharedResourceContainerObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedResourceContainerObjectTemplate.cpp
+END
+SharedBuildingObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedBuildingObjectTemplate.cpp
+END
+SharedBattlefieldMarkerObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedBattlefieldMarkerObjectTemplate.cpp
+END
+SharedInstallationObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedInstallationObjectTemplate.cpp
+END
+SharedShipObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/tangible/SharedShipObjectTemplate.cpp
+END

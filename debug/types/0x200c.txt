@@ -1,0 +1,14 @@
+object/tangible/instrument/base/shared_instrument_base.iff
+object/tangible/instrument/shared_bandfill.iff
+object/tangible/instrument/shared_fanfar.iff
+object/tangible/instrument/shared_fizz.iff
+object/tangible/instrument/shared_flute_droopy.iff
+object/tangible/instrument/shared_instrument_organ_figrin_dan.iff
+object/tangible/instrument/shared_instrument_organ_max_rebo.iff
+object/tangible/instrument/shared_kloo_horn.iff
+object/tangible/instrument/shared_mandoviol.iff
+object/tangible/instrument/shared_nalargon.iff
+object/tangible/instrument/shared_ommni_box.iff
+object/tangible/instrument/shared_organ_max_rebo.iff
+object/tangible/instrument/shared_slitherhorn.iff
+object/tangible/instrument/shared_traz.iff

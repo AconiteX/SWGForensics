@@ -1,0 +1,192 @@
+/*
+ * PortalLayout.h
+ *
+ *  Created on: 30/01/2010
+ *      Author: TheAnswer
+ */
+
+#ifndef PORTALLAYOUT_H_
+#define PORTALLAYOUT_H_
+
+
+#include <QString>
+
+#include "../../../../../system/iff/chunk/Chunk.h"
+
+#include "../../../../swgforensics.h"
+
+#include "../floormesh/FloorMesh.h"
+#include "../mesh/MeshAppearanceTemplate.h"
+#include "../mesh/DetailAppearanceTemplate.h"
+#include "../mesh/ComponentAppearanceTemplate.h"
+
+#include "../objectstolua.h"
+
+#include <QFile>
+
+
+class PortalLayout {
+public:
+	IffStream* iffStream;
+
+	int cellTotalNumber;
+
+	QVector<FloorMesh*> floorMeshes;
+	QVector<MeshAppearanceTemplate*> appMeshes;
+
+	bool saveFloorMeshes;
+
+	QVector<PathNode> pathNodes;
+	QVector<PathEdge> pathEdges;
+	QVector<int> ecnt;
+	QVector<int> estr;
+
+public:
+	PortalLayout(const QString& file) {
+		cellTotalNumber = 0;
+
+		saveFloorMeshes = false;
+
+		try {
+			iffStream = new IffStream(file.toStdString());
+		} catch (...) {
+			iffStream = NULL;
+
+			SWGForensics::instance->printToConsole("unable to open file " + file);
+
+			return;
+		}
+
+		parse();
+	}
+
+	PortalLayout(const QString& file, QVector<FloorMesh*>& floorMeshesToReturn, QVector<MeshAppearanceTemplate*>& appMeshesToReturn) {
+		cellTotalNumber = 0;
+
+		saveFloorMeshes = true;
+
+		try {
+			iffStream = new IffStream(file.toStdString());
+		} catch (...) {
+			iffStream = NULL;
+
+			SWGForensics::instance->printToConsole("unable to open file " + file);
+
+			return;
+		}
+
+		parse();
+
+		floorMeshesToReturn = floorMeshes;
+		appMeshesToReturn = appMeshes;
+	}
+
+	~PortalLayout() {
+		delete iffStream;
+	}
+
+	void parse();
+
+	void parseCELSForm() {
+		try {
+			iffStream->openForm('CELS');
+
+			uint32 nextType;
+
+
+			while (iffStream->getSubChunksNumber() > 0 && ((nextType = iffStream->getNextFormType()) == 'CELL')) {
+				SWGForensics::instance->printToConsole("parsing cell");
+				iffStream->openForm('CELL');
+
+				++cellTotalNumber;
+
+				uint32 nextForm = iffStream->getNextFormType();
+
+				if (nextForm != '0005') {
+					SWGForensics::instance->printToConsole(QString("wrong cell form ") + iffStream->getFileName().c_str());
+
+					continue;
+				}
+
+				iffStream->openForm('0005');
+
+				iffStream->openChunk('DATA');
+
+				int sizeunk = iffStream->getInt();
+
+				int readCase = iffStream->getByte();
+
+				QString cellName;
+				iffStream->getString(cellName);
+
+				QString meshFile;
+				iffStream->getString(meshFile);
+
+				int readCase2 = iffStream->getByte();
+
+				QString floorFile;
+				iffStream->getString(floorFile);
+
+				QString trePath = SWGTRESDIRECTORY;
+
+				QString fullPath = trePath + floorFile;
+
+				FloorMesh* floorParser = new FloorMesh(fullPath);
+
+				if (meshFile.contains(".msh")) {
+					MeshAppearanceTemplate* app = new MeshAppearanceTemplate(trePath + meshFile);
+
+					if (saveFloorMeshes)
+						appMeshes.append(app);
+					else
+						delete app;
+				} else if (meshFile.contains(".lod")){
+					DetailAppearanceTemplate* dtla = new DetailAppearanceTemplate(trePath + meshFile);
+					delete dtla;
+				} else if (meshFile.contains(".cmp")) {
+					ComponentAppearanceTemplate* dtla = new ComponentAppearanceTemplate(trePath + meshFile);
+					delete dtla;
+				} else {
+					SWGForensics::instance->printToConsole(QString("unknown file format ") + meshFile);
+				}
+
+				if (saveFloorMeshes)
+					floorMeshes.append(floorParser);
+				else
+					delete floorParser;
+
+
+				iffStream->closeChunk();
+
+				iffStream->closeForm('0005');
+
+
+				iffStream->closeForm('CELL');
+			}
+
+			SWGForensics::instance->printToConsole("finished parsing cells");
+
+			iffStream->closeForm('CELS');
+		} catch (...) {
+			if (cellTotalNumber > 0)
+				--cellTotalNumber;
+
+			SWGForensics::instance->printToConsole("exception in parsing cells");
+
+			iffStream->closeForm('CELS');
+
+			//throw;
+		}
+
+		if (cellTotalNumber > 0)
+			--cellTotalNumber;
+	}
+
+	int getCellNumber() {
+		return cellTotalNumber;
+	}
+
+};
+
+
+#endif /* PORTALLAYOUT_H_ */

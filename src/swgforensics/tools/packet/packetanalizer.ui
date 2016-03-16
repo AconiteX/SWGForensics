@@ -1,0 +1,32 @@
+<ui version="4.0" >
+ <class>PacketAnalizerClass</class>
+ <widget class="QWidget" name="PacketAnalizerClass" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>PacketAnalizer</string>
+  </property>
+  <widget class="QPushButton" name="pushButton" >
+   <property name="geometry" >
+    <rect>
+     <x>160</x>
+     <y>130</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Start</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <resources/>
+ <connections/>
+</ui>

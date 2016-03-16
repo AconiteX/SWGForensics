@@ -1,0 +1,12 @@
+object/tangible/crafting/base/shared_base_public_station.iff
+object/tangible/crafting/base/shared_base_station.iff
+object/tangible/crafting/station/shared_clothing_station.iff
+object/tangible/crafting/station/shared_food_station.iff
+object/tangible/crafting/station/shared_public_clothing_station.iff
+object/tangible/crafting/station/shared_public_food_station.iff
+object/tangible/crafting/station/shared_public_space_station.iff
+object/tangible/crafting/station/shared_public_structure_station.iff
+object/tangible/crafting/station/shared_public_weapon_station.iff
+object/tangible/crafting/station/shared_space_station.iff
+object/tangible/crafting/station/shared_structure_station.iff
+object/tangible/crafting/station/shared_weapon_station.iff

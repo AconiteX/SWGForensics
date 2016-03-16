@@ -1,0 +1,8 @@
+object/tangible/crafting/base/shared_base_tool.iff
+object/tangible/crafting/station/shared_clothing_tool.iff
+object/tangible/crafting/station/shared_food_tool.iff
+object/tangible/crafting/station/shared_generic_tool.iff
+object/tangible/crafting/station/shared_jedi_tool.iff
+object/tangible/crafting/station/shared_space_tool.iff
+object/tangible/crafting/station/shared_structure_tool.iff
+object/tangible/crafting/station/shared_weapon_tool.iff

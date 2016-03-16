@@ -1,0 +1,8 @@
+object/tangible/wearables/base/shared_base_eyes.iff
+object/tangible/wearables/goggles/shared_goggles_s01.iff
+object/tangible/wearables/goggles/shared_goggles_s02.iff
+object/tangible/wearables/goggles/shared_goggles_s03.iff
+object/tangible/wearables/goggles/shared_goggles_s04.iff
+object/tangible/wearables/goggles/shared_goggles_s05.iff
+object/tangible/wearables/goggles/shared_goggles_s06.iff
+object/tangible/wearables/goggles/shared_rebreather.iff

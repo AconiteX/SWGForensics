@@ -1,0 +1,11 @@
+object/mobile/vehicle/shared_jetpack.iff
+object/mobile/vehicle/shared_landspeeder_av21.iff
+object/mobile/vehicle/shared_landspeeder_base.iff
+object/mobile/vehicle/shared_landspeeder_x31.iff
+object/mobile/vehicle/shared_landspeeder_x34.iff
+object/mobile/vehicle/shared_landspeeder_xp38.iff
+object/mobile/vehicle/shared_speederbike.iff
+object/mobile/vehicle/shared_speederbike_base.iff
+object/mobile/vehicle/shared_speederbike_flash.iff
+object/mobile/vehicle/shared_speederbike_swoop.iff
+object/mobile/shared_vehicular_prototype.iff

@@ -1,0 +1,11 @@
+object/tangible/survey_tool/base/shared_survey_tool_base.iff
+object/tangible/survey_tool/shared_survey_tool_all.iff
+object/tangible/survey_tool/shared_survey_tool_gas.iff
+object/tangible/survey_tool/shared_survey_tool_inorganic.iff
+object/tangible/survey_tool/shared_survey_tool_liquid.iff
+object/tangible/survey_tool/shared_survey_tool_lumber.iff
+object/tangible/survey_tool/shared_survey_tool_mineral.iff
+object/tangible/survey_tool/shared_survey_tool_moisture.iff
+object/tangible/survey_tool/shared_survey_tool_organic.iff
+object/tangible/survey_tool/shared_survey_tool_solar.iff
+object/tangible/survey_tool/shared_survey_tool_wind.iff

@@ -1,0 +1,8 @@
+Waiting for Debug Strings...
+:: Cui unloaded shader :texture/font/verdana_20_000.dds
+:: Cui unloaded shader :texture/ui_logo_soe.dds
+:: Cui initialized shader :texture/font/lucida_console_14_000.dds
+:: Cui unloaded shader :texture/font/verdana_14_000.dds
+:: Cui unloaded shader :texture/ui_notice.dds
+:: Cui unloaded shader :texture/ui_starwars_logo_jtl.dds
+:: Cui unloaded shader :texture/font/verdana_bold_16_000.dds

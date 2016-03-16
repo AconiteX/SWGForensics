@@ -1,0 +1,12 @@
+object/tangible/scout/trap/shared_trap_drowsy_dart.iff
+object/tangible/scout/trap/shared_trap_enraging_spur.iff
+object/tangible/scout/trap/shared_trap_flash_bomb.iff
+object/tangible/scout/trap/shared_trap_melee_def_1.iff
+object/tangible/scout/trap/shared_trap_melee_ranged_def_1.iff
+object/tangible/scout/trap/shared_trap_noise_maker.iff
+object/tangible/scout/trap/shared_trap_ranged_def_1.iff
+object/tangible/scout/trap/shared_trap_ranged_speed_1.iff
+object/tangible/scout/trap/shared_trap_sonic_pulse.iff
+object/tangible/scout/trap/shared_trap_state_def_1.iff
+object/tangible/scout/trap/shared_trap_tranq_dart.iff
+object/tangible/scout/trap/shared_trap_webber.iff

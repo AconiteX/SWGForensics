@@ -1,0 +1,201 @@
+/*
+ * PortalLayout.cpp
+ *
+ *  Created on: 30/01/2010
+ *      Author: TheAnswer
+ */
+
+#include "PortalLayout.h"
+#include <QString>
+#include <QTextStream>
+#include "../mesh/DetailAppearanceTemplate.h"
+
+
+void PortalLayout::parse() {
+	try {
+		iffStream->openForm('PRTO');
+
+		uint32 type = iffStream->getNextFormType();
+
+		if (type != '0003' && type != '0004') {
+			QString err;
+			QTextStream stream(&err);
+			stream << "invalid PROTO type 0x" << hex << type;
+			SWGForensics::instance->printToConsole(err);
+
+			return;
+		}
+
+
+		iffStream->openForm(type);
+
+		Chunk* data = iffStream->openChunk('DATA');
+
+		uint32 var1 = iffStream->getInt();
+		uint32 var2 = iffStream->getInt();
+
+		iffStream->closeChunk('DATA');
+
+		iffStream->openForm('PRTS');
+
+		//skipping PRTS
+		iffStream->closeForm('PRTS');
+
+		//open CELS form
+
+		parseCELSForm();
+
+		/*SWGForensics::instance->printToConsole("opening PGRF");
+
+		iffStream->openForm('PGRF');
+
+		iffStream->openForm('0001');
+
+		iffStream->openChunk('META');
+
+		int unkownMetaInt = iffStream->getInt();
+
+		iffStream->closeChunk('META');
+
+		iffStream->openChunk('PNOD');
+
+		int nodesSize = iffStream->getInt();
+
+		for (int i = 0; i < nodesSize; ++i) {
+			PathNode pathNode;
+
+			pathNode.var1 = iffStream->getInt();
+			pathNode.var2 = iffStream->getInt();
+			pathNode.var3 = iffStream->getInt();
+			pathNode.var4 = iffStream->getInt();
+
+			pathNode.var5 = iffStream->getFloat();
+			pathNode.var6 = iffStream->getFloat();
+			pathNode.var7 = iffStream->getFloat();
+			pathNode.var8 = iffStream->getFloat();
+
+			pathNodes.append(pathNode);
+		}
+
+		iffStream->closeChunk('PNOD');
+
+		iffStream->openChunk('PEDG');
+
+		int pathEdgeSize = iffStream->getInt();
+
+		for (int i = 0; i < pathEdgeSize; ++i) {
+			PathEdge pathEdge;
+
+			pathEdge.var1 = iffStream->getInt();
+			pathEdge.var2 = iffStream->getInt();
+			pathEdge.var3 = iffStream->getInt();
+			pathEdge.var4 = iffStream->getInt();
+
+			pathEdges.append(pathEdge);
+		}
+
+		iffStream->closeChunk('PEDG');
+
+		iffStream->openChunk('ECNT');
+
+		int ecntSize = iffStream->getInt();
+
+		for (int i = 0; i < ecntSize; ++i) {
+			ecnt.append(iffStream->getInt());
+		}
+
+		iffStream->closeChunk('ECNT');
+
+		iffStream->openChunk('ESTR');
+
+		int estrSize = iffStream->getInt();
+
+		for (int i = 0; i < estrSize; ++i) {
+			estr.append(iffStream->getInt());
+		}
+
+		iffStream->closeChunk('ESTR');
+
+		iffStream->closeForm('0001');
+
+		iffStream->closeForm('PGRF');*/
+
+
+		iffStream->closeForm(type);
+
+		iffStream->closeForm('PRTO');
+	} catch (Exception& e) {
+		QString err = "unable to parse file ";
+		err += iffStream->getFileName().c_str();
+		err += " ";
+		err += e.getMessage().c_str();
+		SWGForensics::instance->printToConsole(err);
+	} catch (...) {
+		QString err = "unable to parse file ";
+		err += iffStream->getFileName().c_str();
+		SWGForensics::instance->printToConsole(err);
+	}
+
+	SWGForensics::instance->printToConsole("pathNodes");
+
+	QString pathNodesSize;
+	QTextStream pathNodesSizeStream(&pathNodesSize);
+
+	pathNodesSizeStream << "size:" << pathNodes.size();
+
+	SWGForensics::instance->printToConsole(pathNodesSize);
+
+	for (int i = 0; i < this->pathNodes.size(); ++i) {
+		const PathNode* vert = &pathNodes.at(i);
+
+		vert->printToConsole();
+	}
+
+	SWGForensics::instance->printToConsole("pathEdges");
+
+	QString pathEdgesSize;
+	QTextStream pathEdgesSizeStream(&pathEdgesSize);
+
+	pathEdgesSizeStream << "size:" << pathEdges.size();
+
+	SWGForensics::instance->printToConsole(pathEdgesSize);
+
+	for (int i = 0; i < this->pathEdges.size(); ++i) {
+		const PathEdge* vert = &pathEdges.at(i);
+
+		vert->printToConsole();
+	}
+
+	SWGForensics::instance->printToConsole("ECNT");
+
+	QString ecntSize;
+	QTextStream ecntSizeStream(&ecntSize);
+
+	ecntSizeStream << "size:" << ecnt.size();
+
+	SWGForensics::instance->printToConsole(pathEdgesSize);
+
+	for (int i = 0; i < this->ecnt.size(); ++i) {
+		int var = ecnt.at(i);
+
+		QString val;
+		QTextStream stream(&val);
+
+		stream << var;
+
+		SWGForensics::instance->printToConsole(val);
+	}
+
+	SWGForensics::instance->printToConsole("ESTR");
+
+	for (int i = 0; i < this->estr.size(); ++i) {
+		int var = estr.at(i);
+
+		QString val;
+		QTextStream stream(&val);
+
+		stream << var;
+
+		SWGForensics::instance->printToConsole(val);
+	}
+}

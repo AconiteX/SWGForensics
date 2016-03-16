@@ -1,0 +1,42 @@
+<ui version="4.0" >
+ <class>ProcessListClass</class>
+ <widget class="QWidget" name="ProcessListClass" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>270</width>
+    <height>293</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>ProcessList</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" >
+   <item>
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string>Please select a process</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="listWidget" >
+     <property name="uniformItemSizes" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton" >
+     <property name="text" >
+      <string>Refresh</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,2 @@
+object/resource_container/shared_resource_container_energy_solid.iff
+object/resource_container/shared_resource_container_energy_solid_lg.iff

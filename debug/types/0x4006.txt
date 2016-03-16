@@ -1,0 +1,8 @@
+object/tangible/terminal/shared_terminal_mission.iff
+object/tangible/terminal/shared_terminal_mission_artisan.iff
+object/tangible/terminal/shared_terminal_mission_bounty.iff
+object/tangible/terminal/shared_terminal_mission_entertainer.iff
+object/tangible/terminal/shared_terminal_mission_imperial.iff
+object/tangible/terminal/shared_terminal_mission_rebel.iff
+object/tangible/terminal/shared_terminal_mission_scout.iff
+object/tangible/terminal/shared_terminal_mission_statue.iff

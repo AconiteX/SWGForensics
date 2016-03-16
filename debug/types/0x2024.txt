@@ -1,0 +1,3 @@
+object/tangible/shipcontrol/shared_pilot_chair.iff
+object/tangible/shipcontrol/shared_shipcontrol_corvette.iff
+object/tangible/shipcontrol/shared_shipcontrol_falcon.iff

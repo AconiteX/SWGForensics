@@ -1,0 +1,11 @@
+object/weapon/melee/polearm/base/shared_polearm_base.iff
+object/weapon/melee/polearm/shared_lance_controllerfp.iff
+object/weapon/melee/polearm/shared_lance_controllerfp_nightsister.iff
+object/weapon/melee/polearm/shared_lance_nightsister.iff
+object/weapon/melee/polearm/shared_lance_nightsister_npc_version.iff
+object/weapon/melee/polearm/shared_lance_staff_janta.iff
+object/weapon/melee/polearm/shared_lance_staff_metal.iff
+object/weapon/melee/polearm/shared_lance_staff_wood_s1.iff
+object/weapon/melee/polearm/shared_lance_staff_wood_s2.iff
+object/weapon/melee/polearm/shared_lance_vibrolance.iff
+object/weapon/melee/polearm/shared_polearm_vibro_axe.iff

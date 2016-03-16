@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/SWGForensics/!svn/ver/55/trunk/src/system/iff
+END
+chunks.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/chunks.h
+END
+IffStream.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/SWGForensics/!svn/ver/26/trunk/src/system/iff/IffStream.cpp
+END
+IffStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/SWGForensics/!svn/ver/16/trunk/src/system/iff/IffStream.h
+END
+exceptions.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions.h
+END

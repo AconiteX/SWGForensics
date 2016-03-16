@@ -1,0 +1,3 @@
+object/creature/npc/droid/crafted/shared_imperial_probot.iff
+object/creature/npc/droid/crafted/shared_imperial_probot_advanced.iff
+object/creature/npc/droid/shared_imperial_probot_base.iff

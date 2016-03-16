@@ -1,0 +1,14 @@
+object/weapon/ranged/carbine/base/shared_carbine_base.iff
+object/weapon/ranged/carbine/shared_carbine_cdef.iff
+object/weapon/ranged/carbine/shared_carbine_cdef_corsec.iff
+object/weapon/ranged/carbine/shared_carbine_dh17.iff
+object/weapon/ranged/carbine/shared_carbine_dh17_black.iff
+object/weapon/ranged/carbine/shared_carbine_dh17_snubnose.iff
+object/weapon/ranged/carbine/shared_carbine_dxr6.iff
+object/weapon/ranged/carbine/shared_carbine_e11.iff
+object/weapon/ranged/carbine/shared_carbine_e11_quest.iff
+object/weapon/ranged/carbine/shared_carbine_e11_victor_quest.iff
+object/weapon/ranged/carbine/shared_carbine_ee3.iff
+object/weapon/ranged/carbine/shared_carbine_elite.iff
+object/weapon/ranged/carbine/shared_carbine_laser.iff
+object/weapon/ranged/carbine/shared_carbine_nym_slugthrower.iff

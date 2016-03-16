@@ -1,0 +1,5 @@
+object/weapon/base/shared_base_weapon.iff
+object/weapon/base/shared_weapon_default.iff
+object/weapon/creature/shared_creature_default_weapon.iff
+object/weapon/melee/unarmed/shared_unarmed_default.iff
+object/weapon/melee/unarmed/shared_unarmed_default_player.iff

@@ -1,0 +1,16 @@
+object/tangible/wearables/base/shared_base_wrist_both.iff
+object/tangible/wearables/base/shared_base_wrist_either.iff
+object/tangible/wearables/base/shared_base_wrist_l.iff
+object/tangible/wearables/base/shared_base_wrist_r.iff
+object/tangible/wearables/bracelet/shared_bracelet_l.iff
+object/tangible/wearables/bracelet/shared_bracelet_r.iff
+object/tangible/wearables/bracelet/shared_bracelet_s02_l.iff
+object/tangible/wearables/bracelet/shared_bracelet_s02_r.iff
+object/tangible/wearables/bracelet/shared_bracelet_s03_l.iff
+object/tangible/wearables/bracelet/shared_bracelet_s03_r.iff
+object/tangible/wearables/bracelet/shared_bracelet_s04_l.iff
+object/tangible/wearables/bracelet/shared_bracelet_s04_r.iff
+object/tangible/wearables/bracelet/shared_bracelet_s05_l.iff
+object/tangible/wearables/bracelet/shared_bracelet_s05_r.iff
+object/tangible/wearables/bracelet/shared_bracelet_s06_l.iff
+object/tangible/wearables/bracelet/shared_bracelet_s06_r.iff

@@ -1,0 +1,3 @@
+object/guild/base/shared_base_guild.iff
+object/guild/base/shared_guild_default.iff
+object/guild/shared_guild_object.iff

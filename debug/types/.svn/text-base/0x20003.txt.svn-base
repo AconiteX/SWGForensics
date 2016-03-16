@@ -1,0 +1,11 @@
+object/weapon/ranged/grenade/base/shared_grenade_base.iff
+object/weapon/ranged/grenade/shared_grenade_bug_bomb.iff
+object/weapon/ranged/grenade/shared_grenade_cryoban.iff
+object/weapon/ranged/grenade/shared_grenade_fallback.iff
+object/weapon/ranged/grenade/shared_grenade_fragmentation.iff
+object/weapon/ranged/grenade/shared_grenade_fragmentation_light.iff
+object/weapon/ranged/grenade/shared_grenade_glop.iff
+object/weapon/ranged/grenade/shared_grenade_imperial_detonator.iff
+object/weapon/ranged/grenade/shared_grenade_poison.iff
+object/weapon/ranged/grenade/shared_grenade_proton.iff
+object/weapon/ranged/grenade/shared_grenade_thermal_detonator.iff

@@ -1,0 +1,2 @@
+object/resource_container/shared_resource_container_organic_structure.iff
+object/resource_container/shared_resource_container_organic_structure_lg.iff

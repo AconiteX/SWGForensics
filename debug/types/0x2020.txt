@@ -1,0 +1,2 @@
+object/tangible/mission/quest_item/shared_village_defenses.iff
+object/tangible/mission/quest_item/shared_village_shields.iff

@@ -1,0 +1,246 @@
+/********************************************************************************
+** Form generated from reading UI file 'swgforensics.ui'
+**
+** Created: Thu 10. Mar 23:22:41 2011
+**      by: Qt User Interface Compiler version 4.6.2
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_SWGFORENSICS_H
+#define UI_SWGFORENSICS_H
+
+#include <QtCore/QVariant>
+#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
+#include <QtGui/QHeaderView>
+#include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
+#include <QtGui/QMenuBar>
+#include <QtGui/QStatusBar>
+#include <QtGui/QTextBrowser>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QWidget>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_SWGForensicsClass
+{
+public:
+    QAction *actionQuit;
+    QAction *actionAdd_Breakpoint;
+    QAction *actionRemove_Breakpoint;
+    QAction *actionShow_Debug_Messages;
+    QAction *actionRead_Memory;
+    QAction *actionWrite_Memory;
+    QAction *actionSearch_Memory;
+    QAction *actionHeight_Dumper;
+    QAction *actionHeight_Compiler;
+    QAction *actionTeleport;
+    QAction *actionSave_Debug_Log;
+    QAction *actionAttach_to_process;
+    QAction *actionAbout;
+    QAction *actionDeattach_from_process;
+    QAction *actionShow_internal_console;
+    QAction *actionPacket_Struct_Analizer;
+    QAction *actionIff_Object_Templates;
+    QAction *actionCRC_Calculator;
+    QAction *actionTerrain_Analizer;
+    QAction *actionFloor_Mesh_Analizer;
+    QWidget *centralwidget;
+    QVBoxLayout *verticalLayout;
+    QTextBrowser *textBrowser;
+    QTextBrowser *textBrowser_2;
+    QCheckBox *checkBox;
+    QMenuBar *menubar;
+    QMenu *menuFile;
+    QMenu *menuEdit;
+    QMenu *menuDebugger;
+    QMenu *menuTools;
+    QMenu *menuHacks;
+    QMenu *menuHelp;
+    QStatusBar *statusbar;
+
+    void setupUi(QMainWindow *SWGForensicsClass)
+    {
+        if (SWGForensicsClass->objectName().isEmpty())
+            SWGForensicsClass->setObjectName(QString::fromUtf8("SWGForensicsClass"));
+        SWGForensicsClass->resize(948, 733);
+        actionQuit = new QAction(SWGForensicsClass);
+        actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
+        actionAdd_Breakpoint = new QAction(SWGForensicsClass);
+        actionAdd_Breakpoint->setObjectName(QString::fromUtf8("actionAdd_Breakpoint"));
+        actionAdd_Breakpoint->setEnabled(false);
+        actionRemove_Breakpoint = new QAction(SWGForensicsClass);
+        actionRemove_Breakpoint->setObjectName(QString::fromUtf8("actionRemove_Breakpoint"));
+        actionRemove_Breakpoint->setEnabled(false);
+        actionShow_Debug_Messages = new QAction(SWGForensicsClass);
+        actionShow_Debug_Messages->setObjectName(QString::fromUtf8("actionShow_Debug_Messages"));
+        actionShow_Debug_Messages->setEnabled(false);
+        actionRead_Memory = new QAction(SWGForensicsClass);
+        actionRead_Memory->setObjectName(QString::fromUtf8("actionRead_Memory"));
+        actionRead_Memory->setEnabled(false);
+        actionWrite_Memory = new QAction(SWGForensicsClass);
+        actionWrite_Memory->setObjectName(QString::fromUtf8("actionWrite_Memory"));
+        actionWrite_Memory->setEnabled(false);
+        actionSearch_Memory = new QAction(SWGForensicsClass);
+        actionSearch_Memory->setObjectName(QString::fromUtf8("actionSearch_Memory"));
+        actionSearch_Memory->setEnabled(false);
+        actionHeight_Dumper = new QAction(SWGForensicsClass);
+        actionHeight_Dumper->setObjectName(QString::fromUtf8("actionHeight_Dumper"));
+        actionHeight_Dumper->setEnabled(false);
+        actionHeight_Compiler = new QAction(SWGForensicsClass);
+        actionHeight_Compiler->setObjectName(QString::fromUtf8("actionHeight_Compiler"));
+        actionHeight_Compiler->setEnabled(false);
+        actionTeleport = new QAction(SWGForensicsClass);
+        actionTeleport->setObjectName(QString::fromUtf8("actionTeleport"));
+        actionTeleport->setEnabled(false);
+        actionSave_Debug_Log = new QAction(SWGForensicsClass);
+        actionSave_Debug_Log->setObjectName(QString::fromUtf8("actionSave_Debug_Log"));
+        actionAttach_to_process = new QAction(SWGForensicsClass);
+        actionAttach_to_process->setObjectName(QString::fromUtf8("actionAttach_to_process"));
+        actionAbout = new QAction(SWGForensicsClass);
+        actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
+        actionDeattach_from_process = new QAction(SWGForensicsClass);
+        actionDeattach_from_process->setObjectName(QString::fromUtf8("actionDeattach_from_process"));
+        actionDeattach_from_process->setEnabled(false);
+        actionShow_internal_console = new QAction(SWGForensicsClass);
+        actionShow_internal_console->setObjectName(QString::fromUtf8("actionShow_internal_console"));
+        actionShow_internal_console->setCheckable(true);
+        actionShow_internal_console->setChecked(true);
+        actionShow_internal_console->setEnabled(false);
+        actionPacket_Struct_Analizer = new QAction(SWGForensicsClass);
+        actionPacket_Struct_Analizer->setObjectName(QString::fromUtf8("actionPacket_Struct_Analizer"));
+        actionIff_Object_Templates = new QAction(SWGForensicsClass);
+        actionIff_Object_Templates->setObjectName(QString::fromUtf8("actionIff_Object_Templates"));
+        actionCRC_Calculator = new QAction(SWGForensicsClass);
+        actionCRC_Calculator->setObjectName(QString::fromUtf8("actionCRC_Calculator"));
+        actionTerrain_Analizer = new QAction(SWGForensicsClass);
+        actionTerrain_Analizer->setObjectName(QString::fromUtf8("actionTerrain_Analizer"));
+        actionFloor_Mesh_Analizer = new QAction(SWGForensicsClass);
+        actionFloor_Mesh_Analizer->setObjectName(QString::fromUtf8("actionFloor_Mesh_Analizer"));
+        centralwidget = new QWidget(SWGForensicsClass);
+        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        textBrowser = new QTextBrowser(centralwidget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setEnabled(true);
+        textBrowser->setReadOnly(true);
+
+        verticalLayout->addWidget(textBrowser);
+
+        textBrowser_2 = new QTextBrowser(centralwidget);
+        textBrowser_2->setObjectName(QString::fromUtf8("textBrowser_2"));
+
+        verticalLayout->addWidget(textBrowser_2);
+
+        checkBox = new QCheckBox(centralwidget);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        checkBox->setChecked(true);
+
+        verticalLayout->addWidget(checkBox);
+
+        SWGForensicsClass->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(SWGForensicsClass);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 948, 21));
+        menuFile = new QMenu(menubar);
+        menuFile->setObjectName(QString::fromUtf8("menuFile"));
+        menuEdit = new QMenu(menubar);
+        menuEdit->setObjectName(QString::fromUtf8("menuEdit"));
+        menuDebugger = new QMenu(menubar);
+        menuDebugger->setObjectName(QString::fromUtf8("menuDebugger"));
+        menuTools = new QMenu(menubar);
+        menuTools->setObjectName(QString::fromUtf8("menuTools"));
+        menuHacks = new QMenu(menubar);
+        menuHacks->setObjectName(QString::fromUtf8("menuHacks"));
+        menuHelp = new QMenu(menubar);
+        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
+        SWGForensicsClass->setMenuBar(menubar);
+        statusbar = new QStatusBar(SWGForensicsClass);
+        statusbar->setObjectName(QString::fromUtf8("statusbar"));
+        SWGForensicsClass->setStatusBar(statusbar);
+
+        menubar->addAction(menuFile->menuAction());
+        menubar->addAction(menuEdit->menuAction());
+        menubar->addAction(menuDebugger->menuAction());
+        menubar->addAction(menuTools->menuAction());
+        menubar->addAction(menuHacks->menuAction());
+        menubar->addAction(menuHelp->menuAction());
+        menuFile->addAction(actionSave_Debug_Log);
+        menuFile->addSeparator();
+        menuFile->addAction(actionQuit);
+        menuEdit->addAction(actionShow_internal_console);
+        menuDebugger->addAction(actionAttach_to_process);
+        menuDebugger->addAction(actionDeattach_from_process);
+        menuDebugger->addSeparator();
+        menuDebugger->addAction(actionAdd_Breakpoint);
+        menuDebugger->addAction(actionRemove_Breakpoint);
+        menuDebugger->addSeparator();
+        menuDebugger->addAction(actionShow_Debug_Messages);
+        menuDebugger->addSeparator();
+        menuDebugger->addAction(actionRead_Memory);
+        menuDebugger->addAction(actionWrite_Memory);
+        menuDebugger->addAction(actionSearch_Memory);
+        menuTools->addAction(actionPacket_Struct_Analizer);
+        menuTools->addSeparator();
+        menuTools->addAction(actionHeight_Dumper);
+        menuTools->addAction(actionHeight_Compiler);
+        menuTools->addSeparator();
+        menuTools->addAction(actionIff_Object_Templates);
+        menuTools->addSeparator();
+        menuTools->addAction(actionCRC_Calculator);
+        menuTools->addAction(actionTerrain_Analizer);
+        menuTools->addAction(actionFloor_Mesh_Analizer);
+        menuHacks->addAction(actionTeleport);
+        menuHelp->addAction(actionAbout);
+
+        retranslateUi(SWGForensicsClass);
+
+        QMetaObject::connectSlotsByName(SWGForensicsClass);
+    } // setupUi
+
+    void retranslateUi(QMainWindow *SWGForensicsClass)
+    {
+        SWGForensicsClass->setWindowTitle(QApplication::translate("SWGForensicsClass", "SWGForensics by TheAnswer", 0, QApplication::UnicodeUTF8));
+        actionQuit->setText(QApplication::translate("SWGForensicsClass", "Exit", 0, QApplication::UnicodeUTF8));
+        actionAdd_Breakpoint->setText(QApplication::translate("SWGForensicsClass", "Add Breakpoint", 0, QApplication::UnicodeUTF8));
+        actionRemove_Breakpoint->setText(QApplication::translate("SWGForensicsClass", "Remove Breakpoint", 0, QApplication::UnicodeUTF8));
+        actionShow_Debug_Messages->setText(QApplication::translate("SWGForensicsClass", "Show Debug Messages", 0, QApplication::UnicodeUTF8));
+        actionRead_Memory->setText(QApplication::translate("SWGForensicsClass", "Read Memory", 0, QApplication::UnicodeUTF8));
+        actionWrite_Memory->setText(QApplication::translate("SWGForensicsClass", "Write Memory", 0, QApplication::UnicodeUTF8));
+        actionSearch_Memory->setText(QApplication::translate("SWGForensicsClass", "Search Memory", 0, QApplication::UnicodeUTF8));
+        actionHeight_Dumper->setText(QApplication::translate("SWGForensicsClass", "Height Dumper", 0, QApplication::UnicodeUTF8));
+        actionHeight_Compiler->setText(QApplication::translate("SWGForensicsClass", "Height Compiler", 0, QApplication::UnicodeUTF8));
+        actionTeleport->setText(QApplication::translate("SWGForensicsClass", "Teleport", 0, QApplication::UnicodeUTF8));
+        actionSave_Debug_Log->setText(QApplication::translate("SWGForensicsClass", "Save Debug Log As..", 0, QApplication::UnicodeUTF8));
+        actionAttach_to_process->setText(QApplication::translate("SWGForensicsClass", "Attach to process...", 0, QApplication::UnicodeUTF8));
+        actionAbout->setText(QApplication::translate("SWGForensicsClass", "About", 0, QApplication::UnicodeUTF8));
+        actionDeattach_from_process->setText(QApplication::translate("SWGForensicsClass", "Deattach from process", 0, QApplication::UnicodeUTF8));
+        actionShow_internal_console->setText(QApplication::translate("SWGForensicsClass", "Show internal console", 0, QApplication::UnicodeUTF8));
+        actionPacket_Struct_Analizer->setText(QApplication::translate("SWGForensicsClass", "Packet Struct Analizer", 0, QApplication::UnicodeUTF8));
+        actionIff_Object_Templates->setText(QApplication::translate("SWGForensicsClass", "Iff Object Templates", 0, QApplication::UnicodeUTF8));
+        actionCRC_Calculator->setText(QApplication::translate("SWGForensicsClass", "CRC Calculator", 0, QApplication::UnicodeUTF8));
+        actionTerrain_Analizer->setText(QApplication::translate("SWGForensicsClass", "Terrain Analizer", 0, QApplication::UnicodeUTF8));
+        actionFloor_Mesh_Analizer->setText(QApplication::translate("SWGForensicsClass", "Floor Mesh Analizer", 0, QApplication::UnicodeUTF8));
+        checkBox->setText(QApplication::translate("SWGForensicsClass", "AutoScroll", 0, QApplication::UnicodeUTF8));
+        menuFile->setTitle(QApplication::translate("SWGForensicsClass", "File", 0, QApplication::UnicodeUTF8));
+        menuEdit->setTitle(QApplication::translate("SWGForensicsClass", "Edit", 0, QApplication::UnicodeUTF8));
+        menuDebugger->setTitle(QApplication::translate("SWGForensicsClass", "Debugger", 0, QApplication::UnicodeUTF8));
+        menuTools->setTitle(QApplication::translate("SWGForensicsClass", "Tools", 0, QApplication::UnicodeUTF8));
+        menuHacks->setTitle(QApplication::translate("SWGForensicsClass", "Hacks", 0, QApplication::UnicodeUTF8));
+        menuHelp->setTitle(QApplication::translate("SWGForensicsClass", "Help", 0, QApplication::UnicodeUTF8));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class SWGForensicsClass: public Ui_SWGForensicsClass {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_SWGFORENSICS_H

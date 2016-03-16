@@ -1,0 +1,11 @@
+object/factory/base/shared_base_factory.iff
+object/factory/base/shared_factory_default.iff
+object/factory/shared_factory_crate_armor.iff
+object/factory/shared_factory_crate_chemicals.iff
+object/factory/shared_factory_crate_clothing.iff
+object/factory/shared_factory_crate_electronics.iff
+object/factory/shared_factory_crate_food.iff
+object/factory/shared_factory_crate_furniture.iff
+object/factory/shared_factory_crate_generic_items.iff
+object/factory/shared_factory_crate_installation.iff
+object/factory/shared_factory_crate_weapon.iff

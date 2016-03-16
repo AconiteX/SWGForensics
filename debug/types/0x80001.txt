@@ -1,0 +1,4 @@
+object/tangible/powerup/weapon/fs_quest_sad/shared_melee_speed_quest.iff
+object/tangible/powerup/weapon/shared_melee.iff
+object/tangible/powerup/weapon/shared_melee_generic.iff
+object/tangible/powerup/weapon/shared_melee_lightsaber.iff

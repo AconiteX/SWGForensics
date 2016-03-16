@@ -1,0 +1,11 @@
+object/intangible/data_item/shared_data_geiger_counter.iff
+object/intangible/data_item/shared_data_imperial.iff
+object/intangible/data_item/shared_data_item.iff
+object/intangible/data_item/shared_data_rebel.iff
+object/intangible/data_item/shared_warren_encryption_key.iff
+object/intangible/data_item/shared_warren_evidence_01.iff
+object/intangible/data_item/shared_warren_evidence_02.iff
+object/intangible/data_item/shared_warren_evidence_03.iff
+object/intangible/data_item/shared_warren_evidence_04.iff
+object/intangible/holocron/shared_newbie_mission.iff
+object/intangible/pet/shared_zucca_boar_hue.iff

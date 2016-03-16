@@ -1,0 +1,12 @@
+object/waypoint/base/shared_base_waypoint.iff
+object/waypoint/base/shared_waypoint_default.iff
+object/waypoint/shared_path_waypoint.iff
+object/waypoint/shared_waypoint.iff
+object/waypoint/shared_world_waypoint.iff
+object/waypoint/shared_world_waypoint_blue.iff
+object/waypoint/shared_world_waypoint_green.iff
+object/waypoint/shared_world_waypoint_orange.iff
+object/waypoint/shared_world_waypoint_purple.iff
+object/waypoint/shared_world_waypoint_space.iff
+object/waypoint/shared_world_waypoint_white.iff
+object/waypoint/shared_world_waypoint_yellow.iff

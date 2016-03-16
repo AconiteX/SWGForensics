@@ -1,0 +1,8 @@
+object/intangible/vehicle/shared_jetpack_pcd.iff
+object/intangible/vehicle/shared_landspeeder_av21_pcd.iff
+object/intangible/vehicle/shared_landspeeder_x31_pcd.iff
+object/intangible/vehicle/shared_landspeeder_x34_pcd.iff
+object/intangible/vehicle/shared_speederbike_flash_pcd.iff
+object/intangible/vehicle/shared_speederbike_pcd.iff
+object/intangible/vehicle/shared_speederbike_swoop_pcd.iff
+object/intangible/vehicle/shared_vehicle_pcd_base.iff

@@ -1,0 +1,9 @@
+object/tangible/component/base/shared_base_dna_sample.iff
+object/tangible/component/dna/shared_dna_sample_above_average.iff
+object/tangible/component/dna/shared_dna_sample_average.iff
+object/tangible/component/dna/shared_dna_sample_below_average.iff
+object/tangible/component/dna/shared_dna_sample_high.iff
+object/tangible/component/dna/shared_dna_sample_low.iff
+object/tangible/component/dna/shared_dna_sample_very_high.iff
+object/tangible/component/dna/shared_dna_sample_very_low.iff
+object/tangible/component/dna/shared_dna_template_generic.iff

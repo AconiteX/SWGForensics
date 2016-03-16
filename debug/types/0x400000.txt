@@ -1,0 +1,3 @@
+object/resource_container/base/shared_base_resource_container.iff
+object/resource_container/base/shared_resource_container_default.iff
+object/resource_container/shared_simple.iff

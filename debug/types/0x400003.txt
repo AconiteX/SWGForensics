@@ -1,0 +1,2 @@
+object/resource_container/shared_resource_container_energy_radioactive.iff
+object/resource_container/shared_resource_container_energy_radioactive_lg.iff

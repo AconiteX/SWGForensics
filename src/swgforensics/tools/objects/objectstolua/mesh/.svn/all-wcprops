@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/mesh
+END
+DetailAppearanceTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/SWGForensics/!svn/ver/57/trunk/src/swgforensics/tools/objects/objectstolua/mesh/DetailAppearanceTemplate.cpp
+END
+ComponentAppearanceTemplate.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SWGForensics/!svn/ver/58/trunk/src/swgforensics/tools/objects/objectstolua/mesh/ComponentAppearanceTemplate.h
+END
+DetailAppearanceTemplate.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/SWGForensics/!svn/ver/58/trunk/src/swgforensics/tools/objects/objectstolua/mesh/DetailAppearanceTemplate.h
+END
+MeshAppearanceTemplate.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/SWGForensics/!svn/ver/58/trunk/src/swgforensics/tools/objects/objectstolua/mesh/MeshAppearanceTemplate.h
+END

@@ -1,0 +1,17 @@
+object/cell/base/shared_base_cell.iff
+object/cell/base/shared_cell_default.iff
+object/cell/shared_cell.iff
+object/object/base/shared_base_object.iff
+object/object/base/shared_object_default.iff
+object/tangible/component/vehicle/shared_civilian_a.iff
+object/tangible/component/vehicle/shared_civilian_aa.iff
+object/tangible/component/vehicle/shared_civilian_b.iff
+object/tangible/component/vehicle/shared_civilian_c.iff
+object/tangible/component/vehicle/shared_civilian_d.iff
+object/tangible/component/vehicle/shared_civilian_e.iff
+object/tangible/component/vehicle/shared_military_a.iff
+object/tangible/component/vehicle/shared_military_b.iff
+object/tangible/component/vehicle/shared_military_c.iff
+object/tangible/component/vehicle/shared_military_d.iff
+object/tangible/component/vehicle/shared_military_e.iff
+object/tangible/crafting/shared_default_draft_not_found.iff

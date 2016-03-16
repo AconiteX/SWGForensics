@@ -1,0 +1,15 @@
+object/tangible/wearables/base/shared_base_robe_longsleeve.iff
+object/tangible/wearables/base/shared_base_robe_longsleeve_hooded.iff
+object/tangible/wearables/base/shared_base_robe_shortsleeve.iff
+object/tangible/wearables/base/shared_base_robe_shortsleeve_hooded.iff
+object/tangible/wearables/ithorian/shared_ith_robe_s02.iff
+object/tangible/wearables/ithorian/shared_ith_robe_s03.iff
+object/tangible/wearables/robe/shared_robe_inquisitor.iff
+object/tangible/wearables/robe/shared_robe_prefect_talmont.iff
+object/tangible/wearables/robe/shared_robe_s01.iff
+object/tangible/wearables/robe/shared_robe_s04.iff
+object/tangible/wearables/robe/shared_robe_s12.iff
+object/tangible/wearables/robe/shared_robe_s18.iff
+object/tangible/wearables/robe/shared_robe_s27.iff
+object/tangible/wearables/robe/shared_robe_tusken_raider_s01.iff
+object/tangible/wearables/robe/shared_robe_tusken_raider_s02.iff

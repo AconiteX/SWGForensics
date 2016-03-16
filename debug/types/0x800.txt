@@ -1,0 +1,9 @@
+object/construction_contract/base/shared_base_construction_contract.iff
+object/construction_contract/shared_construction_contract.iff
+object/intangible/base/shared_base_intangible.iff
+object/intangible/base/shared_intangible_default.iff
+object/intangible/data_item/shared_droid_command.iff
+object/intangible/faction_perk/shared_shuttle_extract.iff
+object/intangible/theater/shared_base_theater.iff
+object/universe/base/shared_base_universe.iff
+object/universe/base/shared_universe_default.iff

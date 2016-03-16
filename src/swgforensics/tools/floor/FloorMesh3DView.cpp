@@ -1,0 +1,776 @@
+/*
+ * FloorMesh3DView.cpp
+ *
+ *  Created on: 04/12/2010
+ *      Author: TheAnswer
+ */
+
+#include <QKeyEvent>
+#include "FloorMesh3DView.h"
+
+#include <math.h>
+
+#include "floormeshanalizer.h"
+
+#include "../../swgforensics.h"
+
+#include "../objects/objectstolua/floormesh/FloorMesh.h"
+#include "../objects/objectstolua/mesh/MeshAppearanceTemplate.h"
+#include "../objects/objectstolua/mesh/DetailAppearanceTemplate.h"
+#include "src/system/util/Matrix3.h"
+#include "../objects/objectstolua/params/PortalLayout.h"
+#include "AABBTree.h"
+
+#include "../../../system/util/Vector.h"
+
+#include "../../../system/util/AStarAlgorithm.h"
+#include "../../../system/util/TriangulationAStarAlgorithm.h"
+#include "../../../system/util/Funnel.h"
+
+
+
+FloorMesh3DView::FloorMesh3DView(FloorMeshAnalizer* analizer, QWidget *parent) : QGLWidget() {
+	setWindowTitle(tr("Floor Mesh Analizer 3D View"));
+
+	angle = 0;
+	radians = 0;
+	mouseY = 150;
+
+	cameraX = 0;
+	cameraZ = 0;
+	cameraY = 0;
+
+	lookX = 0;
+	lookY = 0;
+	lookZ = 0;
+
+	lastMouseX = 0, lastMouseY = 0;
+
+	this->analizer = analizer;
+
+	update = true;
+
+	cameraX = lookX + sin(radians) * mouseY;	   // multiplying by mouseY makes the
+	cameraZ = lookZ + cos(radians) * mouseY;    // camera get closer/farther away with mouseY
+	cameraY = lookY + mouseY / 2.0f;
+
+	//	setMouseTracking(true);
+	//grabMouse();
+
+
+}
+
+FloorMesh3DView::~FloorMesh3DView() {
+
+}
+
+void FloorMesh3DView::calculatePath(int tri1, int tri2) {
+	return;
+	FloorMesh* mesh = floorMeshes.at(0);
+	Tri* node1 = mesh->tris.at(tri1);
+	Tri* node2 = mesh->tris.at(tri2);
+	Vector<Tri*>* path = TriangulationAStarAlgorithm<FloorMesh, Tri>::search<uint32>(mesh, node1, node2);
+	Vector<Triangle*> funnel;
+
+	funnelPath.clear();
+	calculatedPath.clear();
+
+	if (path != NULL) {
+		SWGForensics::instance->printToConsole("found path");
+		for (int i = 0; i < path->size(); ++i) {
+			calculatedPath.append(path->get(i));
+
+			funnel.add(path->get(i));
+		}
+
+		TriangleChannel channel(node1->getBarycenter(), &funnel, node2->getBarycenter());
+
+		Vector<Vector3>* funnelFoundPath = Funnel::funnel(channel);
+
+		float distance = 0;
+
+		for (int i = 0; i < funnelFoundPath->size(); ++i) {
+			funnelPath.append(funnelFoundPath->get(i));
+
+			if (i > 0)
+				distance += funnelFoundPath->get(i).squaredDistanceTo(funnelFoundPath->get(i - 1));
+		}
+
+		QString msg;
+		QTextStream stream(&msg);
+
+		stream << "Funnel distance " << sqrt(distance);
+		SWGForensics::instance->printToConsole(msg);
+	} else
+		SWGForensics::instance->printToConsole("didnt found path");
+
+	delete path;
+}
+
+void FloorMesh3DView::rotateMesh(float rad) {
+	Matrix3 rotationMatrix;
+	//float rad = 5.4105206;
+
+	float Sin = sin(rad);
+	float Cos = cos(rad);
+
+	rotationMatrix[0][0] = Cos;
+	rotationMatrix[0][2] = -Sin;
+	rotationMatrix[1][1] = 1;
+	rotationMatrix[2][0] = Sin;
+	rotationMatrix[2][2] = Cos;
+
+	worldMatrix.setRotationMatrix(rotationMatrix);
+	worldMatrix.setTranslation(5, 20, 5);
+}
+
+void FloorMesh3DView::initializeGL() {
+	makeCurrent();
+	initializeTerrain();
+	initCommon();
+
+	QImage tex, buf;
+	if ( !buf.load( "green.bmp" ) ) {
+		qWarning( "Could not read image file, using single-color instead." );
+		/*QImage dummy( 128, 128, 32 );
+    	dummy.fill( Qt::green.rgb() );
+    	buf = dummy;*/
+	} else {
+		qWarning( "loaded green shit" );
+	}
+
+	tex = QGLWidget::convertToGLFormat( buf );
+
+	glGenTextures(1, &terrainTexture);
+	glBindTexture(GL_TEXTURE_2D, terrainTexture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGB, tex.width(), tex.height(), GL_RGBA, GL_UNSIGNED_BYTE, tex.bits());
+}
+
+void FloorMesh3DView::drawBEDG() {
+	/*
+	for (int k = 0; k < floorMeshes.size(); ++k) {
+		FloorMesh* mesh = floorMeshes.at(k);
+
+		for (int i = 0; i < mesh->edges.size(); ++i) {
+			const Bedg& bedg = mesh->edges.at(i);
+
+			//int tri = bedg.var1;
+
+			const Tri* tri = &mesh->tris.at(tri);
+
+			int pointA = tri->var1;
+			int pointB = tri->var2;
+			int pointC = tri->var3;
+
+			const Vert* vert = &floorMesh->vertices.at(pointA);
+			const Vert* vert2 = &floorMesh->vertices.at(pointB);
+			const Vert* vert3 = &floorMesh->vertices.at(pointC);
+		}
+	}
+
+	 */
+}
+
+void FloorMesh3DView::calculateAABBs() {
+	aabbTree.clear();
+
+	/*for (int k = 0; k < meshAppearances.size(); ++k) {
+		MeshAppearanceTemplate* mesh = meshAppearances.at(k);
+
+		for (int j = 0; j < mesh->meshes.size(); ++j) {
+
+			const MeshData* data = &mesh->meshes.at(j);
+
+			QVector<Triangle> triangles;
+
+			for (int i = 0; i < data->triangleIndexes.size(); i += 3) {
+				int pointA = data->triangleIndexes.at(i);
+				int pointB = data->triangleIndexes.at(i + 1);
+				int pointC = data->triangleIndexes.at(i + 2);
+
+				const MeshVertex* vert = &data->vertexes.at(pointA);
+				const MeshVertex* vert2 = &data->vertexes.at(pointB);
+				const MeshVertex* vert3 = &data->vertexes.at(pointC);
+
+				Vector3 vertices[3];
+
+				vertices[0] = Vector3(vert->x, vert->y, vert->z) * worldMatrix;
+				vertices[1] = Vector3(vert2->x, vert2->y, vert2->z) * worldMatrix;
+				vertices[2] = Vector3(vert3->x, vert3->y, vert3->z) * worldMatrix;
+
+				Triangle tri(vertices);
+				triangles.append(tri);
+			}
+
+			AABBNode::Heuristic heurData;
+			heurData.maxdepth = 3;
+			heurData.mintricnt = 5;
+			heurData.tartricnt = 10;
+			heurData.minerror = 0.5;
+
+			AABBNode* tree = new AABBNode(triangles, 0, heurData);
+			aabbTree.append(tree);
+		}
+
+	}*/
+
+
+	return;
+
+	for (int k = 0; k < floorMeshes.size(); ++k) {
+		FloorMesh* mesh = floorMeshes.at(k);
+
+		AABBNode* tree = NULL;
+
+		if (mesh->aabbNodes.size() > 0) {
+			tree = mesh->aabbNodes.at(0);
+
+			const Nods* dataa = &mesh->nodes.at(0);
+			int leftID = dataa->var3;
+
+			if (leftID != -1) {
+				AABBNode* left = mesh->aabbNodes.at(0);
+				if (left != tree)
+					tree->setLeftChild(left);
+			}
+
+			int rightID = dataa->var4;
+
+			if (rightID != -1) {
+				AABBNode* right = mesh->aabbNodes.at(dataa->var4);
+
+				if (right != tree)
+					tree->setRightChild(right);
+			}
+
+
+			for (int j = 1; j < mesh->aabbNodes.size(); ++j) {
+				const Nods* data = &mesh->nodes.at(j);
+				AABBNode* node = mesh->aabbNodes.at(j);
+
+				int leftChild = data->var3;
+				int rightChild = data->var4;
+
+				if (leftChild != -1 && data->var1 != leftChild) {
+					node->setLeftChild(mesh->aabbNodes.at(data->var3));
+				}
+
+				if (rightChild != -1 && data->var1 != rightChild) {
+					node->setRightChild(mesh->aabbNodes.at(data->var4));
+				}
+			}
+
+			if (tree != NULL)
+				aabbTree.append(tree);
+		}
+	}
+
+}
+
+void FloorMesh3DView::drawAABBNode(AABBNode* node) {
+	AABBNode* rightChild = node->getRightChild();
+	AABBNode* leftChild = node->getLeftChild();
+
+	if (leftChild != NULL) {
+		drawAABBNode(leftChild);
+	}
+
+	if (rightChild != NULL)
+		drawAABBNode(rightChild);
+
+	AABB* mBox = node->getMbox();
+	glBegin(GL_LINES);
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMin(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMin(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMin(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMin(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMax(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMax(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMax(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMax(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMin(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMin(), mBox->getZMin());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMin(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMax(), mBox->getZMin());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMin(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMax(), mBox->getZMin());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMax(), mBox->getZMin());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMax(), mBox->getZMin());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMin(), mBox->getZMax());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMin(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMin(), mBox->getZMax());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMax(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMin(), mBox->getZMax());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMax(), mBox->getZMax());
+
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMin(), mBox->getYMax(), mBox->getZMax());
+	glColor3f(0, 0.5, 0);
+	glVertex3f(mBox->getXMax(), mBox->getYMax(), mBox->getZMax());
+
+	glEnd();
+}
+
+void FloorMesh3DView::drawAABBTrees() {
+	for (int i = 0; i < aabbTree.size(); ++i) {
+		AABBNode* node = aabbTree.at(i);
+
+		drawAABBNode(node);
+	}
+}
+
+void FloorMesh3DView::mousePressEvent(QMouseEvent* mouseEvent) {
+	Qt::MouseButtons buttons = mouseEvent->buttons();
+
+	if (buttons & (Qt::MidButton)) {
+		mouseY += 1.5f;
+
+		cameraX = lookX + sin(radians) * mouseY;	   // multiplying by mouseY makes the
+		cameraZ = lookZ + cos(radians) * mouseY;    // camera get closer/farther away with mouseY
+		cameraY = lookY + mouseY / 2.0f;
+
+		updateGL();
+	} else if (buttons & (Qt::RightButton)) {
+		mouseY -= 1.5f;
+
+		cameraX = lookX + sin(radians) * mouseY;	   // multiplying by mouseY makes the
+		cameraZ = lookZ + cos(radians) * mouseY;    // camera get closer/farther away with mouseY
+		cameraY = lookY + mouseY / 2.0f;
+
+		updateGL();
+	}
+
+
+}
+
+void FloorMesh3DView::mouseMoveEvent(QMouseEvent* mouseEvent){
+	if (lastMouseX == 0 && lastMouseY == 0) {
+		lastMouseX = mouseEvent->x();
+		lastMouseY = mouseEvent->y();
+
+		return;
+	}
+
+	qreal deltaY = mouseEvent->y() - lastMouseY;
+	qreal deltaX = mouseEvent->x() - lastMouseX;
+
+	if (deltaY > 0) {
+		lookY += 3.f;
+	} else {
+		lookY -= 3.f;
+	}
+
+	if (deltaX > 0) {
+		//lookX += 1.5f;
+		angle -= 1.0f;
+
+		cameraX = lookX + sin(radians) * mouseY;	   // multiplying by mouseY makes the
+		cameraZ = lookZ + cos(radians) * mouseY;
+	} else {
+		//lookX -= 1.5f;
+		angle += 1.0f;
+
+		cameraX = lookX + sin(radians) * mouseY;	   // multiplying by mouseY makes the
+		cameraZ = lookZ + cos(radians) * mouseY;
+	}
+
+	lastMouseX = 0;
+	lastMouseY = 0;
+
+	updateGL();
+}
+
+void FloorMesh3DView::keyPressEvent(QKeyEvent* event) {
+	int key = event->key();
+
+	switch (key) {
+	/*case Qt::Key_S:
+		mouseY += 1.5f;
+		break;
+	case Qt::Key_W:
+		mouseY -= 1.5f;
+		break;*/
+	/*case Qt::Key_A:
+		//angle += 3.0f;
+		lookZ -= 1.5f;
+		// lookX
+		break;
+	case Qt::Key_D:
+		//angle -= 3.0f;
+		lookZ += 1.5f;
+		break;*/
+
+	case Qt::Key_A:
+		//angle += 3.0f;
+		cameraX -= 1.5f;
+		lookX -= 1.5f;
+		// lookX
+		break;
+	case Qt::Key_D:
+		//angle -= 3.0f;
+		cameraX += 1.5f;
+		lookX += 1.5f;
+		break;
+
+	case Qt::Key_S:
+		cameraZ += 1.5f;
+		lookZ += 1.5f;
+		break;
+	case Qt::Key_W:
+		cameraZ -= 1.5f;
+		lookZ -= 1.5f;
+		break;
+	default:
+		//QFrame::keyPressEvent(event);
+		break;
+	}
+
+	updateGL();
+
+	//grabMouse();
+}
+
+void FloorMesh3DView::paintGL() {
+	makeCurrent();
+
+	//angle = 0.f;
+
+	radians =  float(M_PI*(angle-90.0f)/180.0f);
+
+	/*lookX = 0;//(MAP_X*MAP_SCALE)/2.0f;
+    lookY = 0;//1. * 2;
+    lookZ = 0;//-(MAP_Z*MAP_SCALE)/2.0f;*/
+
+	// calculate the camera's position
+	/*cameraX = lookX + sin(radians) * mouseY;	   // multiplying by mouseY makes the
+	cameraZ = lookZ + cos(radians) * mouseY;    // camera get closer/farther away with mouseY
+	cameraY = lookY + mouseY / 2.0f;*/
+
+	// clear screen and depth buffer
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glLoadIdentity();
+
+	// set the camera position
+	gluLookAt(cameraX, cameraY, cameraZ, lookX, lookY, lookZ, 0.0, 1.0, 0.0);
+
+	// set the current texture to the land texture
+	glBindTexture(GL_TEXTURE_2D, terrainTexture);
+
+	// we are going to loop through all of our terrain's data points,
+	// but we only want to draw one triangle strip for each set along the x-axis.
+
+	//glShadeModel(GL_SMOOTH);
+
+	QVectorIterator<PortalLayout*> portals(portalLayouts);
+
+	while (portals.hasNext()) {
+		PortalLayout* floorMesh = portals.next();
+
+		glBegin(GL_LINES);
+
+		//lets paint the path graph
+
+		for (int i = 0; i < floorMesh->pathEdges.size(); ++i) {
+			const PathEdge* pathEdge = &floorMesh->pathEdges.at(i);
+
+			int from = pathEdge->var1;
+			int to = pathEdge->var2;
+
+			const PathNode* fromNode = &floorMesh->pathNodes.at(from);
+			const PathNode* toNode = &floorMesh->pathNodes.at(to);
+
+			glColor3f(0, 0, 1);
+			glVertex3f(fromNode->var5 , (fromNode->var6 + 1)  , fromNode->var7 );
+			glColor3f(0, 1, 1);
+			glVertex3f(toNode->var5 , (toNode->var6 + 1) , toNode->var7 );
+		}
+
+		glEnd();
+	}
+
+	QVectorIterator<FloorMesh*> l(floorMeshes);
+
+	int floorID = 0;
+
+	while (l.hasNext()) {
+		++floorID;
+		FloorMesh* floorMesh = l.next();
+
+		glBegin(GL_LINES);
+
+		//lets paint the path graph
+
+		for (int i = 0; i < floorMesh->pathEdges.size(); ++i) {
+			const PathEdge* pathEdge = &floorMesh->pathEdges.at(i);
+
+			int from = pathEdge->var1;
+			int to = pathEdge->var2;
+
+			const PathNode* fromNode = &floorMesh->pathNodes.at(from);
+			const PathNode* toNode = &floorMesh->pathNodes.at(to);
+
+			glColor3f(0, 1.f, 0);
+			glVertex3f(fromNode->var5 , (fromNode->var6 + 1)  , fromNode->var7 );
+			glColor3f(0, 1.f, 0);
+			glVertex3f(toNode->var5 , (toNode->var6 + 1) , toNode->var7 );
+		}
+
+		glEnd();
+
+		glBegin(GL_TRIANGLES);
+
+		for (int i = 0; i < floorMesh->tris.size(); ++i) {
+			Tri* tri = floorMesh->tris.at(i);
+
+			int pointA = tri->var1;
+			int pointB = tri->var2;
+			int pointC = tri->var3;
+
+			const Vert* vert = &floorMesh->vertices.at(pointA);
+			const Vert* vert2 = &floorMesh->vertices.at(pointB);
+			const Vert* vert3 = &floorMesh->vertices.at(pointC);
+			double intPart = 8;
+			// glColor3f(vert->y / 20, vert->y / 20, vert->y / 20);
+
+			//float col = fabs(fmod(vert->y, intPart) / 10.f) + (float((i + 1)) / 10.f);
+
+			float r = float(rand() % 255) / 255;
+			float g = 0;//float(rand() % 255) / 255;
+			float b = 0;//float(rand() % 255) / 255;
+
+			if (calculatedPath.contains(tri)) {
+				//r = 1, g = 0, b = 0;
+			} else if (tri->isVisited()){
+				r = 0, g = 0, b = 1;
+			} else {
+				r = 0, g = 0.25, b = 0;
+			}
+
+			/*if (i & 1 > 0) {
+            	r = 1, g = 0, b = 0;
+            } else {
+            	r = 0, g = 1, b = 0;
+            }*/
+
+			glColor3f(r, g, b);
+			//glColor4f(fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, 0.5);
+			//glTexCoord2f(1.0f, 0.0f);
+
+			//glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(vert->x , vert->y , vert->z );
+
+			//glTexCoord2f(0.0f, 1.0f);
+			//glColor3f(vert->y / 20, vert->y / 20, vert->y / 20);
+			//glColor3f(fabs(fmod(vert->y, intPart) / 10.f), fabs(fmod(vert->y, intPart) / 10.f), fabs(fmod(vert->y, intPart)) / 10.f);
+			glColor3f(r, g, b);
+			//glColor4f(fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, 0.5);
+			//glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(vert2->x , vert2->y , vert2->z );
+
+			//glTexCoord2f(1.0f, 0.0f);
+			//glColor3f(vert->y / 20, vert->y / 20, vert->y / 20);
+			//glColor3f(fabs(fmod(vert->y, intPart) / 10.f), fabs(fmod(vert->y, intPart) / 10.f), fabs(fmod(vert->y, intPart)) / 10.f);
+			glColor3f(r, g, b);
+			//glColor4f(fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, 0.5);
+			//glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(vert3->x , vert3->y , vert3->z );
+
+		}
+
+		glEnd();
+
+		//drawing funnel path
+
+		glBegin(GL_LINES);
+
+		//lets paint the funnel graph
+
+		for (int i = 0; i < funnelPath.size(); ++i) {
+			const Vector3* vec = &funnelPath.at(i);
+
+			glColor3f(0, 0, 1);
+			glVertex3f(vec->getX() , vec->getY() + 1, vec->getZ());
+
+			if (i < funnelPath.size() - 2) {
+				const Vector3* vec2 = &funnelPath.at(i + 1);
+
+				glColor3f(0, 0, 1);
+				glVertex3f(vec2->getX() , vec2->getY() + 1, vec2->getZ());
+			}
+
+		}
+
+		glEnd();
+
+	}
+
+
+	//original
+	for (int k = 0; k < meshAppearances.size(); ++k) {
+		MeshAppearanceTemplate* mesh = meshAppearances.at(k);
+
+		for (int j = 0; j < mesh->meshes.size(); ++j) {
+
+			const MeshData* data = &mesh->meshes.at(j);
+
+			for (int i = 0; i < data->triangleIndexes.size(); i += 3) {
+
+				glBegin(GL_TRIANGLES);
+
+				for (int m = 0; m < 3; ++m) {
+					int pointA = data->triangleIndexes.at(i + m);
+
+					const MeshVertex* vert = &data->vertexes.at(pointA);
+					double intPart = 8;
+					glColor3f(fabs(fmod(vert->y, intPart) / 10.f), fabs(fmod(vert->y, intPart) / 10.f), fabs(fmod(vert->y, intPart)) / 10.f);
+					//glColor4f(fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, 0.5);
+					glTexCoord2f(1.0f, 0.0f);
+
+					glVertex3f(vert->x , vert->y , vert->z );
+					/* Vector3 vec(vert->x, vert->y, vert->z);
+                    Vector3 newVec = vec * worldMatrix;
+                    glVertex3f(newVec.getX() , newVec.getY() , newVec.getZ() );*/
+
+				}
+
+				glEnd();
+
+			}
+
+
+		}
+
+	}
+
+	//world transform
+	/*for (int k = 0; k < meshAppearances.size(); ++k) {
+		MeshAppearanceTemplate* mesh = meshAppearances.at(k);
+
+		for (int j = 0; j < mesh->meshes.size(); ++j) {
+
+			const MeshData* data = &mesh->meshes.at(j);
+
+			for (int i = 0; i < data->triangleIndexes.size(); i += 3) {
+
+				glBegin(GL_TRIANGLES);
+
+				for (int m = 0; m < 3; ++m) {
+					int pointA = data->triangleIndexes.at(i + m);
+
+					const MeshVertex* vert = &data->vertexes.at(pointA);
+					glColor3f(fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, fabs(vert->y) / 10.f);
+					//glColor4f(fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, fabs(vert->y) / 10.f, 0.5);
+					glTexCoord2f(1.0f, 0.0f);
+
+					//glVertex3f(vert->x , vert->y , vert->z );
+					Vector3 vec(vert->x, vert->y, vert->z);
+					Vector3 newVec = vec * worldMatrix;
+					glVertex3f(newVec.getX() , newVec.getY() , newVec.getZ() );
+
+				}
+
+				glEnd();
+
+			}
+
+
+		}
+
+	}*/
+
+	drawAABBTrees();
+
+	// enable blending
+	glEnable(GL_BLEND);
+
+	// enable read-only depth buffer
+	glDepthMask(GL_FALSE);
+
+	// set the blend function to what we use for transparency
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+
+	// set back to normal depth buffer mode (writable)
+	glDepthMask(GL_TRUE);
+
+	// disable blending
+	glDisable(GL_BLEND);
+
+	glFlush();
+}
+
+
+void FloorMesh3DView::initCommon() {
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);		// clear to black
+
+	glShadeModel(GL_SMOOTH);					   // use smooth shading
+	glEnable(GL_DEPTH_TEST);					   // hidden surface removal
+	glEnable(GL_CULL_FACE);						   // do not calculate inside of poly's
+	glFrontFace(GL_CCW);						      // counter clock-wise polygons are out
+
+	glEnable(GL_TEXTURE_2D);					   // enable 2D texturing
+}
+
+void FloorMesh3DView::initializeTerrain() {
+	/*AffectorHeightFractal* ahfr = analizer->getAffectorHeightFractal();
+
+	for (int z = 0; z < MAP_Z; z++)
+	{
+		for (int x = 0; x < MAP_X; x++)
+		{
+			terrain[x][z][0] = float(x) * MAP_SCALE;
+			terrain[x][z][1] = ahfr->getHeight(x, z) * MAP_SCALE;//(float)imageData[(z*MAP_Z+x)*3];
+			terrain[x][z][2] = -float(z) * MAP_SCALE;
+		}
+	}*/
+
+}
+
+void FloorMesh3DView::resizeGL(int width, int height) {
+	glViewport(0, 0, width, height);	   // reset the viewport to new dimensions
+	glMatrixMode(GL_PROJECTION);		   // set projection matrix current matrix
+	glLoadIdentity();					      // reset projection matrix
+
+	// calculate aspect ratio of window
+	gluPerspective(54.0f,(GLfloat)width/(GLfloat)height,1.0f,2000.0f);
+
+	glMatrixMode(GL_MODELVIEW);			// set modelview matrix
+	glLoadIdentity();					      // reset modelview matrix
+	/*glViewport(0, 0, width, height);
+    aspect = (qreal)width / (qreal)(height ? height : 1);
+    perspectiveProjection();*/
+}

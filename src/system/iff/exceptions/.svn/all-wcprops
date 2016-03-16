@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions
+END
+IffStreamException.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/IffStreamException.h
+END
+NoChunksException.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/NoChunksException.h
+END
+Exception.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/Exception.cpp
+END
+NoOpenedChunkException.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/NoOpenedChunkException.h
+END
+ArrayIndexOutOfBoundsException.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/ArrayIndexOutOfBoundsException.h
+END
+Exception.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/Exception.h
+END
+InvalidChunkTypeException.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/InvalidChunkTypeException.h
+END
+InvalidFileTypeException.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SWGForensics/!svn/ver/8/trunk/src/system/iff/exceptions/InvalidFileTypeException.h
+END

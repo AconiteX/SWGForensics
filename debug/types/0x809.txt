@@ -1,0 +1,3 @@
+object/draft_schematic/community_crafting/shared_base_community_crafting.iff
+object/draft_schematic/community_crafting/shared_village_defenses.iff
+object/draft_schematic/community_crafting/shared_village_shields.iff

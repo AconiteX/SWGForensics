@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util
+END
+TriangleChannel.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/TriangleChannel.h
+END
+VectorMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/VectorMap.h
+END
+Vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Vector.h
+END
+types.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/types.h
+END
+Triangle.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Triangle.h
+END
+PriorityQueue.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/PriorityQueue.cpp
+END
+AStarAlgorithm.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/AStarAlgorithm.h
+END
+TriangulationAStarAlgorithm.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/TriangulationAStarAlgorithm.h
+END
+Funnel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Funnel.cpp
+END
+SortedVector.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/SortedVector.h
+END
+Matrix4.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Matrix4.cpp
+END
+Vector3.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Vector3.h
+END
+oldTRA.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/oldTRA.h
+END
+Vector4.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Vector4.h
+END
+PriorityQueue.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/PriorityQueue.h
+END
+Matrix3.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Matrix3.h
+END
+Funnel.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Funnel.h
+END
+Matrix4.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SWGForensics/!svn/ver/64/trunk/src/system/util/Matrix4.h
+END

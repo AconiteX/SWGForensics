@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/universe
+END
+SharedGuildObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/universe/SharedGuildObjectTemplate.cpp
+END
+SharedGroupObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/universe/SharedGroupObjectTemplate.cpp
+END
+SharedJediManagerTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/universe/SharedJediManagerTemplate.cpp
+END

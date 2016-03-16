@@ -1,0 +1,6 @@
+object/weapon/ranged/heavy/base/shared_heavy_weapon_base.iff
+object/weapon/ranged/heavy/shared_heavy_acid_beam.iff
+object/weapon/ranged/heavy/shared_heavy_lightning_beam.iff
+object/weapon/ranged/heavy/shared_heavy_particle_beam.iff
+object/weapon/ranged/heavy/shared_heavy_rocket_launcher.iff
+object/weapon/ranged/heavy/shared_launcher.iff

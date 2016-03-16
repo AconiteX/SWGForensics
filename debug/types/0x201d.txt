@@ -1,0 +1,2 @@
+object/tangible/gem/shared_armor.iff
+object/tangible/gem/shared_clothing.iff

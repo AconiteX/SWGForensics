@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates
+END
+SharedObjectTemplate.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/SWGForensics/!svn/ver/51/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedObjectTemplate.h
+END
+SharedTangibleObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedTangibleObjectTemplate.cpp
+END
+SharedStaticObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedStaticObjectTemplate.cpp
+END
+SharedIntangibleObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedIntangibleObjectTemplate.cpp
+END
+SharedObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SWGForensics/!svn/ver/51/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedObjectTemplate.cpp
+END
+SharedCellObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedCellObjectTemplate.cpp
+END
+SharedUniverseObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/SharedUniverseObjectTemplate.cpp
+END

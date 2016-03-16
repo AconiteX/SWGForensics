@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SWGForensicsClass</class>
+ <widget class="QMainWindow" name="SWGForensicsClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>948</width>
+    <height>733</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SWGForensics by TheAnswer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="textBrowser_2"/>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="text">
+       <string>AutoScroll</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>948</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSave_Debug_Log"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionShow_internal_console"/>
+   </widget>
+   <widget class="QMenu" name="menuDebugger">
+    <property name="title">
+     <string>Debugger</string>
+    </property>
+    <addaction name="actionAttach_to_process"/>
+    <addaction name="actionDeattach_from_process"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_Breakpoint"/>
+    <addaction name="actionRemove_Breakpoint"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Debug_Messages"/>
+    <addaction name="separator"/>
+    <addaction name="actionRead_Memory"/>
+    <addaction name="actionWrite_Memory"/>
+    <addaction name="actionSearch_Memory"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionPacket_Struct_Analizer"/>
+    <addaction name="separator"/>
+    <addaction name="actionHeight_Dumper"/>
+    <addaction name="actionHeight_Compiler"/>
+    <addaction name="separator"/>
+    <addaction name="actionIff_Object_Templates"/>
+    <addaction name="actionLair_Tool"/>
+    <addaction name="separator"/>
+    <addaction name="actionCRC_Calculator"/>
+    <addaction name="actionTerrain_Analizer"/>
+    <addaction name="actionFloor_Mesh_Analizer"/>
+   </widget>
+   <widget class="QMenu" name="menuHacks">
+    <property name="title">
+     <string>Hacks</string>
+    </property>
+    <addaction name="actionTeleport"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuDebugger"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHacks"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAdd_Breakpoint">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Add Breakpoint</string>
+   </property>
+  </action>
+  <action name="actionRemove_Breakpoint">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Remove Breakpoint</string>
+   </property>
+  </action>
+  <action name="actionShow_Debug_Messages">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Debug Messages</string>
+   </property>
+  </action>
+  <action name="actionRead_Memory">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Read Memory</string>
+   </property>
+  </action>
+  <action name="actionWrite_Memory">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Write Memory</string>
+   </property>
+  </action>
+  <action name="actionSearch_Memory">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Search Memory</string>
+   </property>
+  </action>
+  <action name="actionHeight_Dumper">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Height Dumper</string>
+   </property>
+  </action>
+  <action name="actionHeight_Compiler">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Height Compiler</string>
+   </property>
+  </action>
+  <action name="actionTeleport">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Teleport</string>
+   </property>
+  </action>
+  <action name="actionSave_Debug_Log">
+   <property name="text">
+    <string>Save Debug Log As..</string>
+   </property>
+  </action>
+  <action name="actionAttach_to_process">
+   <property name="text">
+    <string>Attach to process...</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionDeattach_from_process">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Deattach from process</string>
+   </property>
+  </action>
+  <action name="actionShow_internal_console">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show internal console</string>
+   </property>
+  </action>
+  <action name="actionPacket_Struct_Analizer">
+   <property name="text">
+    <string>Packet Struct Analizer</string>
+   </property>
+  </action>
+  <action name="actionIff_Object_Templates">
+   <property name="text">
+    <string>Iff Object Templates</string>
+   </property>
+  </action>
+  <action name="actionCRC_Calculator">
+   <property name="text">
+    <string>CRC Calculator</string>
+   </property>
+  </action>
+  <action name="actionTerrain_Analizer">
+   <property name="text">
+    <string>Terrain Analizer</string>
+   </property>
+  </action>
+  <action name="actionFloor_Mesh_Analizer">
+   <property name="text">
+    <string>Floor Mesh Analizer</string>
+   </property>
+  </action>
+  <action name="actionLair_Tool">
+   <property name="text">
+    <string>Lair Tool</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,1 @@
+object/tangible/terminal/shared_terminal_space.iff

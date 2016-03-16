@@ -1,0 +1,10 @@
+object/tangible/component/weapon/lightsaber/shared_base_lightsaber_lance_module.iff
+object/tangible/component/weapon/lightsaber/shared_base_lightsaber_module.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_lance_module_force_crystal.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_attackspeed.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_color.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_damage.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_force_crystal.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_forcecost.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_krayt_dragon_pearl.iff
+object/tangible/component/weapon/lightsaber/shared_lightsaber_module_woundchance.iff

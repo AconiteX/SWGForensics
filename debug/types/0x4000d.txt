@@ -1,0 +1,10 @@
+object/tangible/component/structure/shared_connections.iff
+object/tangible/component/structure/shared_lightweight_turret.iff
+object/tangible/component/structure/shared_lightweight_turret_electronics.iff
+object/tangible/component/structure/shared_lightweight_turret_hardware.iff
+object/tangible/component/structure/shared_power_supply.iff
+object/tangible/component/structure/shared_primary_computer.iff
+object/tangible/component/structure/shared_regulator.iff
+object/tangible/component/structure/shared_reinforced_wall_module.iff
+object/tangible/component/structure/shared_shield_housing.iff
+object/tangible/component/structure/shared_unit_computer.iff

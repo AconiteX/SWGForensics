@@ -1,0 +1,3 @@
+object/mission/base/shared_base_mission.iff
+object/mission/base/shared_mission_default.iff
+object/mission/shared_mission_object.iff

@@ -1,0 +1,11 @@
+object/tangible/terminal/shared_terminal_bestine_quests_01.iff
+object/tangible/terminal/shared_terminal_bestine_quests_02.iff
+object/tangible/terminal/shared_terminal_bestine_quests_03.iff
+object/tangible/terminal/shared_terminal_city.iff
+object/tangible/terminal/shared_terminal_city_vote.iff
+object/tangible/terminal/shared_terminal_elevator.iff
+object/tangible/terminal/shared_terminal_elevator_down.iff
+object/tangible/terminal/shared_terminal_elevator_up.iff
+object/tangible/terminal/shared_terminal_guild.iff
+object/tangible/terminal/shared_test.iff
+object/tangible/travel/shuttle/base/shared_base_travel_shuttle.iff

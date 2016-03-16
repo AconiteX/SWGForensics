@@ -1,0 +1,8 @@
+object/tangible/deed/vehicle_deed/shared_jetpack_deed.iff
+object/tangible/deed/vehicle_deed/shared_landspeeder_av21_deed.iff
+object/tangible/deed/vehicle_deed/shared_landspeeder_x31_deed.iff
+object/tangible/deed/vehicle_deed/shared_landspeeder_x34_deed.iff
+object/tangible/deed/vehicle_deed/shared_speederbike_deed.iff
+object/tangible/deed/vehicle_deed/shared_speederbike_flash_deed.iff
+object/tangible/deed/vehicle_deed/shared_speederbike_swoop_deed.iff
+object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff

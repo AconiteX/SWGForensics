@@ -1,0 +1,3 @@
+object/tangible/terminal/shared_terminal_player_structure.iff
+object/tangible/terminal/shared_terminal_player_structure_nosnap.iff
+object/tangible/terminal/shared_terminal_player_structure_nosnap_mini.iff

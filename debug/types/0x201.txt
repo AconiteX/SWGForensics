@@ -1,0 +1,1 @@
+object/building/base/shared_base_municipal.iff

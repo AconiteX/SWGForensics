@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible
+END
+SharedConstructionContractObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedConstructionContractObjectTemplate.cpp
+END
+SharedWaypointObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedWaypointObjectTemplate.cpp
+END
+SharedManufactureSchematicObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedManufactureSchematicObjectTemplate.cpp
+END
+SharedMissionDataObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedMissionDataObjectTemplate.cpp
+END
+SharedPlayerObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedPlayerObjectTemplate.cpp
+END
+SharedMissionListEntryObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedMissionListEntryObjectTemplate.cpp
+END
+SharedTokenObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedTokenObjectTemplate.cpp
+END
+SharedDraftSchematicObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedDraftSchematicObjectTemplate.cpp
+END
+SharedMissionObjectTemplate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/SWGForensics/!svn/ver/64/trunk/src/swgforensics/tools/objects/objectstolua/templates/intangible/SharedMissionObjectTemplate.cpp
+END
